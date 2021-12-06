@@ -4,7 +4,7 @@ function App() {
       <header>
         <div className="wrapper">
           <div className="left">
-            <img src="/img/logo.png" />
+            <img width={40} height={40} src="/img/logo.png" />
             <div className="column">
               <h3>React Sneakers</h3>
               <p>Магазин лучших кроссовок</p>
@@ -13,18 +13,18 @@ function App() {
           <div className="right">
             <ul>
               <li>
-                <img src="/img/icon-telegka.png" />
+                <img width={20} height={20} src="/img/icon-telegka.png" />
 
               </li>
               <li>
                 <p><span>1205руб</span></p>
               </li>
               <li>
-                <img src="/img/icon-heart.png" />
+                <img width={20} height={20} src="/img/icon-heart.png" />
 
               </li>
               <li>
-                <img src="/img/icon-profile.png" />
+                <img width={20} height={20} src="/img/icon-profile.png" />
 
               </li>
 

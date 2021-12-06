@@ -29,10 +29,20 @@ body {
 
   header {
 
+    h3 {
+      text-transform: uppercase;
+    }
+
+    .column {
+      p {
+        color: #9D9D9D;
+      }
+    }
+
     .wrapper {
       display: flex;
       justify-content: space-between;
-      padding: 43px 0 44px 45px;
+      padding: 43px 43px 44px 45px;
 
     }
 
@@ -49,21 +59,15 @@ body {
         align-items: center;
         width: 196px;
         list-style: none;
+        justify-content: space-between;
       }
 
       li {
-        img {
-          width: 20px;
-          height: 20px;
-        }
+        margin-right: 25px;
       }
     }
 
-    img {
-      width: 40px;
-      height: 40px;
-    }
-
+    
   }
 }
 
