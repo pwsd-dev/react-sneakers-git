@@ -9,6 +9,10 @@ body {
   // font-family: system-ui;
   font-family: 'Inter', sans-serif;
 
+  * {
+    font-family: 'Inter', sans-serif;
+  }
+
   h1 {
     // color: red;
   }
@@ -74,20 +78,20 @@ body {
   }
 
   .content {
+
     h1 {
       margin: 0;
     }
 
-    
-
     .card {
+      border: 1px solid #fefefe;
       width: 210px;
       height: 260px;
-      margin-right: 40px;
     }
 
     .price {
       font-weight: 900;
+      
     }
   }
 }
@@ -98,7 +102,28 @@ img {
 
 .card-wrapper {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
+.card {
+  
+}
 
+.searchWrapper {
+
+  .search {
+    display: flex;
+    align-items: center;
+
+    img {
+      opacity: .6;
+    }
+  }
+
+  input {
+    outline: none;
+    border: 0;
+    background-color: white;
+  }
+}
