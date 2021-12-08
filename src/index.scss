@@ -1,4 +1,5 @@
 body {
+  background-color: #E7F6FF;
   margin: 0;
   
   -webkit-font-smoothing: antialiased;
@@ -13,11 +14,7 @@ body {
     font-family: 'Inter', sans-serif;
   }
 
-  h1 {
-    // color: red;
-  }
-
-  background-color: #E7F6FF;
+  
 
   .wrapper {
     margin: 50px auto;
@@ -46,19 +43,6 @@ body {
       }
     }
 
-    .wrapper {
-      // display: flex;
-      // justify-content: space-between;
-      // padding: 43px 43px 44px 45px;
-
-    }
-
-    // .left {
-    //   display: flex;
-    //   align-items: center;
-      
-    // }
-
     .right {
 
       ul {
@@ -84,9 +68,18 @@ body {
     }
 
     .card {
-      border: 1px solid #fefefe;
+      display: flex;
+      flex-direction: column;
+      
+      padding: 10px;
+      border: 1px solid #f3f3f3;
       width: 210px;
       height: 260px;
+      margin-bottom: 20px;
+
+      img {
+        align-self: center;
+      }
     }
 
     .price {
@@ -104,11 +97,10 @@ img {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-}
-
-.card {
   
 }
+
+
 
 .searchWrapper {
 
@@ -125,5 +117,6 @@ img {
     outline: none;
     border: 0;
     background-color: white;
+    width: 200px;
   }
 }
