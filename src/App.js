@@ -47,13 +47,27 @@ function App() {
                   <p>Цена</p>
                   <p className="price">12 999руб.</p>
                 </div>
-
                 <div>
-                  <img width={32} height={32} src="/img/plus.svg" alt="sneakers" />
+                  <img className="add" width={32} height={32} src="/img/plus.svg" alt="sneakers" />
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="cart">
+          <div className="background"></div>
+          <div className="side p-30">
+            <b className="">Корзина</b>
+            <div className="items">
+              <div className="item">
+                <div className="left-side">
+                  <img width={70} height={70} src="/img/sneakers/1.png" alt="sneakers"></img>
+                </div>
+                <div className="mid-side"></div>
+                <div className="right-side"></div>
 
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -97,16 +97,22 @@ body {
 
     }
 
+    
+    
     .price {
       font-weight: 900;
       
     }
+
+    .add, .favourite {
+      cursor: pointer;
+    }
   }
 }
 
-img {
-  cursor: pointer;
-}
+// img {
+//   cursor: pointer;
+// }
 
 .card-wrapper {
   display: flex;
@@ -134,4 +140,34 @@ img {
     background-color: white;
     width: 200px;
   }
+}
+
+
+.cart {
+
+  
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+  }
+
+  .side {
+    position: absolute;
+    width: 385px;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: #fff;
+    opacity: 1;
+  }
+
+  
+
+  
 }
