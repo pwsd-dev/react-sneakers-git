@@ -1,11 +1,11 @@
-function Card() {
+function Card(props) {
     return (
         <div className="card">
             <div className="card-inner">
                 <div className="favourite">
                     <img className="heart-unliked" width={32} height={32} src="/img/heart-unliked.svg" alt="heart-unliked" />
                 </div>
-                <img width={133} height={112} src="/img/sneakers/1.png" alt="sneakers" />
+                <img width={133} height={112} src={props.imageUrl} alt="sneakers" />
                 <p className="mb-15">Мужские Кроссовки Nike Blazer Mid Suede</p>
                 <div className="d-flex justify-between align-center">
                     <div>
