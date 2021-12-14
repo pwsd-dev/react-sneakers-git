@@ -5,7 +5,11 @@ const arrSneakers = [
   { title: 'Мужские Кроссовки Nike Blazer Mid Suede', price: 12999, imageUrl: '/img/sneakers/1.png' },
   { title: 'Мужские Кроссовки Nike Air Max 270', price: 5799, imageUrl: '/img/sneakers/2.png' },
   { title: 'Мужские Кроссовки Nike Blazer Mid Suede', price: 8599, imageUrl: '/img/sneakers/3.png' },
-  { title: 'Кроссовки Puma X Aka Boku Future Rider', price: 9799, imageUrl: '/img/sneakers/4.png' },
+  { title: 'Мужские Кроссовки Under Armour Curry 8', price: 9799, imageUrl: '/img/sneakers/4.png' },
+  { title: 'Мужские Кроссовки Nike Blazer Mid Suede', price: 15199, imageUrl: '/img/sneakers/5.png' },
+  { title: 'Мужские Кроссовки Nike Kyrie 7', price: 5799, imageUrl: '/img/sneakers/6.png' },
+  { title: 'Мужские Кроссовки Jordan Air Jordan 11', price: 12599, imageUrl: '/img/sneakers/7.png' },
+  { title: 'Мужские Кроссовки Nike LeBron XVIII', price: 9799, imageUrl: '/img/sneakers/8.png' },
 ]
 
 function App() {
@@ -22,7 +26,7 @@ function App() {
         </div>
         <div className="card-wrapper d-flex">
           {
-            arrSneakers.map((obj) => (<Card title={obj.title} imageUrl={obj.imageUrl} />))
+            arrSneakers.map((obj) => (<Card title={obj.title} imageUrl={obj.imageUrl} price={obj.price} />))
           }
         </div>
         <div className="cart">

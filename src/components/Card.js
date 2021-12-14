@@ -10,7 +10,7 @@ function Card(props) {
                 <div className="d-flex justify-between align-center">
                     <div>
                         <p>Цена</p>
-                        <p className="price">12 999руб.</p>
+                        <p className="price">{props.price}</p>
                     </div>
                     <div>
                         <img className="add" width={32} height={32} src="/img/plus.svg" alt="sneakers" />
