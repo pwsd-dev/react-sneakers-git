@@ -13,9 +13,15 @@ const arrSneakers = [
 ]
 
 function App() {
+  
+  let card = arrSneakers.map((obj, index) => {
+    return(<Card title={obj.title} imageUrl={obj.imageUrl} price={obj.price} key={index} />);
+  });
+
   return (
-    <div className="wrapper">
+    < div className = "wrapper" >
       <Header />
+      
       <div className="content p-40">
         <div className="searchWrapper d-flex justify-between mb-40">
           <h1 className="">Все кроссовки</h1>
@@ -25,9 +31,7 @@ function App() {
           </div>
         </div>
         <div className="card-wrapper d-flex">
-          {
-            arrSneakers.map((obj) => (<Card title={obj.title} imageUrl={obj.imageUrl} price={obj.price} key={obj.id} />))
-          }
+          { card }
         </div>
         <div className="cart">
           <div className="background"></div>
