@@ -13,6 +13,7 @@ const arrSneakers = [
 ]
 
 function App() {
+  // const[items]
   return (
     <div className="wrapper">
       <Header />
