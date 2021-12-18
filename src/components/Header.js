@@ -1,4 +1,7 @@
-function Header() {
+import React from 'react';
+
+function Header(props) {
+
     return (
         <header className="d-flex justify-between p-40">
             <div className="left d-flex align-center">
@@ -10,7 +13,7 @@ function Header() {
             </div>
             <div className="right">
                 <ul>
-                    <li>
+                    <li onClick={props.onClickCart}>
                         <img width={20} height={20} src="/img/icon-telegka.png" alt="icon" />
                     </li>
                     <li>
