@@ -17,6 +17,13 @@ const arrSneakers = [
 function App() {
 
   const [cartOpened, setCartOpened] = React.useState(false);
+  const [items, setItems] = React.useState();
+  const [cartItem, setCartItem] = React.useState([
+    { title: 'Мужские Кроссовки Nike Blazer Mid Suede', price: 12999, imageUrl: '/img/sneakers/1.png', id: 1 },
+    { title: 'Мужские Кроссовки Nike Air Max 270', price: 5799, imageUrl: '/img/sneakers/2.png', id: 2 },
+  ]
+
+  );
 
   let card = arrSneakers.map((obj, index) => {
     return (<Card title={obj.title} imageUrl={obj.imageUrl} price={obj.price} key={index} />);
@@ -36,7 +43,7 @@ function App() {
         </div>
         <div className="card-wrapper d-flex">
           {card}
-          {cartOpened ? <Cart /> : null}
+          {cartOpened ? <Cart items={cartItem} onCloseCart={() => setCartOpened(false)} /> : null}
         </div>
 
       </div>
