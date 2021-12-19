@@ -13,7 +13,7 @@ function Cart({ onCloseCart, items = [] }) { // из объекта props с п�
                             <div className="left-side">
                                 <img width={70} height={70} src={obj.imageUrl} alt="sneakers"></img>
                             </div>
-                            <div className="mid-side"></div>
+                            <div className="mid-side">2</div>
                             <div className="right-side"></div>
                         </div>
                     })}

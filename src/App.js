@@ -21,12 +21,16 @@ function App() {
   const [cartItem, setCartItem] = React.useState([
     { title: 'Мужские Кроссовки Nike Blazer Mid Suede', price: 12999, imageUrl: '/img/sneakers/1.png', id: 1 },
     { title: 'Мужские Кроссовки Nike Air Max 270', price: 5799, imageUrl: '/img/sneakers/2.png', id: 2 },
-  ]
+  ]);
 
-  );
+  const onAddToCart = (obj) => {
+    setCartItem([...cartItem], obj)
+  }
 
-  let card = arrSneakers.map((obj, index) => {
-    return (<Card title={obj.title} imageUrl={obj.imageUrl} price={obj.price} key={index} />);
+  console.log(cartItem);
+
+  let card = arrSneakers.map((item, index) => {
+    return (<Card title={item.title} imageUrl={item.imageUrl} price={item.price} key={index} onPlus={(obj) => onAddToCart(obj)} />);
   });
 
   return (
