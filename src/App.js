@@ -23,7 +23,7 @@ function App() {
       });
   }, []);
 
-  console.log(cartItem);
+  // console.log(cartItem);
 
   let card = items.map((item, index) => {
     return (<Card title={item.title}
