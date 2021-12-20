@@ -6,7 +6,12 @@ function Cart({ onCloseCart, items = [] }) { // из объекта props с п�
         <div className={styles.cart}>
             <div className={styles.background}></div>
             <div className={styles.side}>
-                <b onClick={onCloseCart}>Корзина</b>
+                <div className="d-flex justify-between">
+                    <b onClick={onCloseCart}>Корзина</b>
+                    <div>
+                        <img onClick={onCloseCart} src="./img/icon-remove.png" alt="icon-remove"></img>
+                    </div>
+                </div>
                 <div className={styles.mb40}></div>
                 <div className="items">
                     {items.map((obj, index) => {

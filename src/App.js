@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Card from './components/Card';
 import Cart from './components/Cart'
 import Header from './components/Header';
@@ -13,14 +14,20 @@ function App() {
     // console.log(obj);
   }
 
+  // React.useEffect(() => {
+  //   fetch('https://61bf2889b25c3a00173f4cbe.mockapi.io/items')
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((json) => {
+  //       setItems(json);
+  //     });
+  // }, []);
+
   React.useEffect(() => {
-    fetch('https://61bf2889b25c3a00173f4cbe.mockapi.io/items')
-      .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        setItems(json);
-      });
+    axios.get('https://61bf2889b25c3a00173f4cbe.mockapi.io/items').then((res) => {
+      setItems(res.data);
+    })
   }, []);
 
   // console.log(cartItem);
