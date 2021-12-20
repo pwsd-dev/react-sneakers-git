@@ -24,7 +24,7 @@ function Cart({ onCloseCart, items = [] }) { // из объекта props с п�
 
                                 </div>
                                 <div onClick={() => console.log(123)} className="right-side">
-                                    <img src="./img/icon-remove.png"></img>
+                                    <img src="./img/icon-remove.png" alt="icon-remove"></img>
                                 </div>
                             </div>)
                     })}
