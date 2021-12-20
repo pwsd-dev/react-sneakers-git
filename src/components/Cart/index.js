@@ -2,10 +2,6 @@ import React from 'react';
 import styles from './Cart.module.scss';
 
 function Cart({ onCloseCart, items = [] }) { // из объекта props с помощью деструктуризации берем переменную onCloseCart и items который по умолчанию пустой массив
-    // const [items, setItems] = React.useState();
-    // remove(i) {
-    //     items.splice(i, 1);
-    // }
     return (
         <div className={styles.cart}>
             <div className={styles.background}></div>
