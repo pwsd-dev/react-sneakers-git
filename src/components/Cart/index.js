@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './Cart.module.scss';
 
-function Cart({ onCloseCart, items = [] }) { // из объекта props с помощью деструктуризации берем переменную onCloseCart и items который по умолчанию пустой массив
+function Cart({ onCloseCart, items = [], onRemove }) { // из объекта props с помощью деструктуризации берем переменную onCloseCart и items который по умолчанию пустой массив
+
+
     return (
         <div className={styles.cart}>
             <div className={styles.background}></div>
@@ -28,7 +30,7 @@ function Cart({ onCloseCart, items = [] }) { // из объекта props с п�
                                     </div>
 
                                 </div>
-                                <div onClick={() => console.log(123)} className="right-side">
+                                <div onClick={() => onRemove()} className="right-side">
                                     <img src="./img/icon-remove.png" alt="icon-remove"></img>
                                 </div>
                             </div>)

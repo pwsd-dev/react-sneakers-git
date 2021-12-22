@@ -10,9 +10,15 @@ function App() {
   let [cartItem, setCartItem] = React.useState([]);
 
   let onAddToCart = (obj) => {
-    setCartItem([...cartItem, obj]);
+    setCartItem((prev) => [...prev, obj]);
     // console.log(obj);
   }
+
+  let onRemoveItem = (id) => {
+    setCartItem((prev) => prev.filter(item => item.id !== id));
+    // console.log(id);
+  }
+
 
   // React.useEffect(() => {
   //   fetch('https://61bf2889b25c3a00173f4cbe.mockapi.io/items')
@@ -54,7 +60,7 @@ function App() {
         </div>
         <div className="card-wrapper d-flex">
           {card}
-          {cartOpened ? <Cart items={cartItem} onCloseCart={() => setCartOpened(false)} /> : null}
+          {cartOpened ? <Cart items={cartItem} onCloseCart={() => setCartOpened(false)} onRemove={onRemoveItem} /> : null}
         </div>
 
       </div>
