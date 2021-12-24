@@ -8,27 +8,7 @@ function App() {
   let [items, setItems] = React.useState([]);
   let [cartOpened, setCartOpened] = React.useState(false);
   let [cartItem, setCartItem] = React.useState([]);
-
-  let onAddToCart = (obj) => {
-    setCartItem((prev) => [...prev, obj]);
-    // console.log(obj);
-  }
-
-  let onRemoveItem = (id) => {
-    setCartItem((prev) => prev.filter(item => item.id !== id));
-    // console.log(id);
-  }
-
-
-  // React.useEffect(() => {
-  //   fetch('https://61bf2889b25c3a00173f4cbe.mockapi.io/items')
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((json) => {
-  //       setItems(json);
-  //     });
-  // }, []);
+  let [searchValue, setSearchValue] = React.useState('');
 
   React.useEffect(() => {
     axios.get('https://61bf2889b25c3a00173f4cbe.mockapi.io/items').then((res) => {
@@ -36,15 +16,31 @@ function App() {
     })
   }, []);
 
-  // console.log(cartItem);
+  let onAddToCart = (obj) => {
+    axios.post('https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem', obj);
+    setCartItem((prev) => [...prev, obj]);
+  }
 
-  let card = items.map((item, index) => {
-    return (<Card title={item.title}
-      imageUrl={item.imageUrl}
-      price={item.price}
-      key={index}
-      onPlus={(item) => onAddToCart(item)} />);
-  });
+  let onRemoveItem = (id) => {
+    // axios.delete(`https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem/${id}`);
+    setCartItem((prev) => prev.filter(item => item.id !== id));
+  }
+
+  let changeSearchInput = (event) => {
+    setSearchValue(event.target.value);
+    console.log(event.target.value)
+
+  }
+
+  let card = items
+    .filter((item) => item.title.toLowerCase().includes(searchValue))
+    .map((item, index) => {
+      return (<Card title={item.title}
+        imageUrl={item.imageUrl}
+        price={item.price}
+        key={index}
+        onPlus={(item) => onAddToCart(item)} />);
+    });
 
   return (
     < div className="wrapper" >
@@ -52,15 +48,15 @@ function App() {
 
       <div className="content p-40">
         <div className="searchWrapper d-flex justify-between mb-40">
-          <h1 className="">Все кроссовки</h1>
+          <h1 className="">{searchValue ? `Поиск по запросу: ${searchValue}` : 'Все кроссовки'}</h1>
           <div className="search">
             <img width={23} height={23} src="/img/search.png" alt="icon"></img>
-            <input></input>
+            <input value={searchValue} onChange={changeSearchInput}></input>
           </div>
         </div>
         <div className="card-wrapper d-flex">
           {card}
-          {cartOpened ? <Cart items={cartItem} onCloseCart={() => setCartOpened(false)} onRemove={onRemoveItem} /> : null}
+          {cartOpened ? <Cart items={cartItem} onCloseCart={() => setCartOpened(false)} onRemove={onRemoveItem} key={cartItem.id} /> : null}
         </div>
 
       </div>

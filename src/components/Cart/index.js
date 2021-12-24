@@ -3,7 +3,6 @@ import styles from './Cart.module.scss';
 
 function Cart({ onCloseCart, items = [], onRemove }) { // из объекта props с помощью деструктуризации берем переменную onCloseCart и items который по умолчанию пустой массив
 
-
     return (
         <div className={styles.cart}>
             <div className={styles.background}></div>
@@ -18,8 +17,7 @@ function Cart({ onCloseCart, items = [], onRemove }) { // из объекта pr
                 <div className="items">
                     {items.map((obj, index) => {
                         return (
-
-                            <div className={styles.item}>
+                            <div key={index} className={styles.item}>
                                 <div className="left-side">
                                     <img width={70} height={70} src={obj.imageUrl} alt="sneakers"></img>
                                 </div>
@@ -30,7 +28,7 @@ function Cart({ onCloseCart, items = [], onRemove }) { // из объекта pr
                                     </div>
 
                                 </div>
-                                <div onClick={() => onRemove()} className="right-side">
+                                <div onClick={() => onRemove(obj.id)} className="right-side">
                                     <img src="./img/icon-remove.png" alt="icon-remove"></img>
                                 </div>
                             </div>)
