@@ -3,9 +3,11 @@ import React from 'react';
 function Header(props) {
 
     return (
-        <header className="d-flex justify-between p-40">
+        <header className="d-flex justify-between p-40 cu-p">
             <div className="left d-flex align-center">
-                <img width={40} height={40} src="/img/logo.png" className="mr-15" alt="logo" />
+                <a href="../">
+                    <img width={40} height={40} src="/img/logo.png" className="mr-15" alt="logo" />
+                </a>
                 <div className="column">
                     <h3>React Sneakers</h3>
                     <p>Магазин лучших кроссовок</p>
