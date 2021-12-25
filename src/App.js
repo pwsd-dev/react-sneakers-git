@@ -1,8 +1,10 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import Card from './components/Card';
 import Cart from './components/Cart'
 import Header from './components/Header';
+import Home from './pages/Home.jsx'
 
 function App() {
   let [items, setItems] = React.useState([]);
@@ -30,15 +32,6 @@ function App() {
     setSearchValue(event.target.value);
   }
 
-  let card = items
-    .filter((item) => item.title.toLowerCase().includes(searchValue))
-    .map((item, index) => {
-      return (<Card title={item.title}
-        imageUrl={item.imageUrl}
-        price={item.price}
-        key={index}
-        onPlus={(item) => onAddToCart(item)} />);
-    });
 
   return (
     < div className="wrapper" >
@@ -56,7 +49,17 @@ function App() {
           {card}
           {cartOpened ? <Cart items={cartItem} onCloseCart={() => setCartOpened(false)} onRemove={onRemoveItem} key={cartItem.id} /> : null}
         </div>
-
+        <Switch>
+          <Route path='/'>
+            <Home items={items}
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+              changeSearchInput={changeSearchInput}
+              onAddToCart={onAddToCart}
+              onAddFav={onAddFav}
+            />
+          </Route>
+        </Switch>
       </div>
     </div >
   );
