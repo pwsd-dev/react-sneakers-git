@@ -1,13 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Header(props) {
 
     return (
+
         <header className="d-flex justify-between p-40 cu-p">
             <div className="left d-flex align-center">
-                <a href="../">
+
+                <Link to='/'>
                     <img width={40} height={40} src="/img/logo.png" className="mr-15" alt="logo" />
-                </a>
+                </Link>
+
+
                 <div className="column">
                     <h3>React Sneakers</h3>
                     <p>Магазин лучших кроссовок</p>
@@ -22,14 +27,19 @@ function Header(props) {
                         <p><span>1205руб</span></p>
                     </li>
                     <li>
-                        <img width={20} height={20} src="/img/icon-heart.png" alt="icon" />
+                        <Link to='/favorites'>
+                            <img width={20} height={20} src="/img/icon-heart.png" alt="icon" />
+                        </Link>
                     </li>
+
                     <li>
                         <img width={20} height={20} src="/img/icon-profile.png" alt="icon" />
                     </li>
                 </ul>
             </div>
-        </header>
+        </header >
+
+
     );
 }
 
