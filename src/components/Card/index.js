@@ -16,6 +16,10 @@ function Card({ title, imageUrl, price, onPlus }) {
         setIsAddedFav(!isAddedFav)
     };
 
+    // const onAddFav = () => {
+    //     setIsAddedFav(!isAddedFav);
+    // };
+
     React.useEffect(() => {
     }, [isAdded, isAddedFav]);
 

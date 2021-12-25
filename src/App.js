@@ -1,7 +1,6 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
-import Card from './components/Card';
 import Cart from './components/Cart'
 import Header from './components/Header';
 import Home from './pages/Home.jsx'
@@ -33,10 +32,11 @@ function App() {
   }
 
 
+
+
   return (
     < div className="wrapper" >
       <Header onClickCart={() => setCartOpened(true)} />
-
       <div className="content p-40">
         <div className="searchWrapper d-flex justify-between mb-40">
           <h1 className="">{searchValue ? `Поиск по запросу: ${searchValue}` : 'Все кроссовки'}</h1>
@@ -46,20 +46,23 @@ function App() {
           </div>
         </div>
         <div className="card-wrapper d-flex">
-          {card}
           {cartOpened ? <Cart items={cartItem} onCloseCart={() => setCartOpened(false)} onRemove={onRemoveItem} key={cartItem.id} /> : null}
         </div>
-        <Switch>
-          <Route path='/'>
-            <Home items={items}
-              searchValue={searchValue}
-              setSearchValue={setSearchValue}
-              changeSearchInput={changeSearchInput}
-              onAddToCart={onAddToCart}
-              onAddFav={onAddFav}
-            />
-          </Route>
-        </Switch>
+        <Router>
+          <Switch>
+            <Route path='/'>
+              <Home items={items}
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+                changeSearchInput={changeSearchInput}
+                onAddToCart={onAddToCart}
+              // onAddFav={onAddFav}
+
+              />
+            </Route>
+          </Switch>
+        </Router>
+
       </div>
     </div >
   );

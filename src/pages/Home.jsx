@@ -2,18 +2,18 @@ import React from 'react';
 import Cart from '../components/Cart'
 import Card from '../components/Card'
 
-let card = items
-    .filter((item) => item.title.toLowerCase().includes(searchValue))
-    .map((item, index) => {
-        return (<Card title={item.title}
-            imageUrl={item.imageUrl}
-            price={item.price}
-            key={index}
-            onPlus={(item) => onAddToCart(item)} />);
-    });
-
-
-function Home({ searchValue, changeSearchInput }) {
+function Home({ searchValue, changeSearchInput, onAddToCart, cartItem, setCartOpened, items, cartOpened, onRemoveItem, onAddFav }) {
+    let card = items
+        .filter((item) => item.title.toLowerCase().includes(searchValue))
+        .map((item, index) => {
+            return (<Card title={item.title}
+                imageUrl={item.imageUrl}
+                price={item.price}
+                key={index}
+                onPlus={(item) => onAddToCart(item)}
+                onAddFav={(item) => onAddFav(item)}
+            />);
+        });
     return (
         <div className="content p-40">
             <div className="searchWrapper d-flex justify-between mb-40">
