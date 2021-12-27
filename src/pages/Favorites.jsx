@@ -1,22 +1,24 @@
 import React from 'react';
 import Cart from '../components/Cart'
-// import Card from '../components/Card'
+import Card from '../components/Card'
 
-function Favorites({ searchValue, changeSearchInput, onAddToCart, cartItem, setCartOpened, items, cartOpened, onRemoveItem, onAddFav }) {
-    // let card = items
-    //     .filter((item) => item.title.toLowerCase().includes(searchValue))
-    //     .map((item, index) => {
-    //         return (<Card title={item.title}
-    //             imageUrl={item.imageUrl}
-    //             price={item.price}
-    //             key={index}
-    //             onPlus={(item) => onAddToCart(item)}
-    //             onAddFav={(item) => onAddFav(item)}
-    //         />);
-    //     });
+function Favorites({ onAddToCart, cartItem, setCartOpened, items, cartOpened, onRemoveItem, onAddFav }) {
+    let card = items.map((item, index) => {
+        return (<Card title={item.title}
+            imageUrl={item.imageUrl}
+            price={item.price}
+            key={index}
+            onPlus={(item) => onAddToCart(item)}
+            onAddFav={(item) => onAddFav(item)}
+        />);
+    });
     return (
         <div className="content p-40">
-            <h1>Избранное</h1>
+            <h1 className="mb-40">Избранное</h1>
+            <div>
+                {card}
+            </div>
+
 
             <div className="card-wrapper d-flex">
                 {/* {card} */}

@@ -24,6 +24,11 @@ function App() {
     setCartItem((prev) => [...prev, obj]);
   }
 
+  let onAddToFav = (obj) => {
+    axios.post('https://61bf2889b25c3a00173f4cbe.mockapi.io/favorite', obj);
+    setFavorites((prev) => [...prev, obj]);
+  }
+
   let onRemoveItem = (id) => {
     // axios.delete(`https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem/${id}`);
     setCartItem((prev) => prev.filter(item => item.id !== id));
@@ -54,10 +59,10 @@ function App() {
             setSearchValue={setSearchValue}
             changeSearchInput={changeSearchInput}
             onAddToCart={onAddToCart}
-          // onAddFav={onAddFav}
+            onAddFav={onAddToFav}
           />}>
           </Route>
-          <Route path='/favorites' exact element={<Favorites
+          <Route path='/favorites' exact element={<Favorites items={favorites}
           />}>
 
           </Route>

@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './Card.module.scss';
 
 
-function Card({ title, imageUrl, price, onPlus }) {
+function Card({ title, imageUrl, price, onPlus, onAddFav, favorited }) {
 
     const [isAdded, setIsAdded] = React.useState(false);
-    const [isAddedFav, setIsAddedFav] = React.useState(false);
+    const [isAddedFav, setIsAddedFav] = React.useState(favorited);
 
     const onClickPlus = () => {
         setIsAdded(!isAdded);
@@ -13,7 +13,9 @@ function Card({ title, imageUrl, price, onPlus }) {
     };
 
     const onClickFav = () => {
-        setIsAddedFav(!isAddedFav)
+        setIsAddedFav(!isAddedFav);
+        onAddFav({ title, imageUrl, price });
+
     };
 
     // const onAddFav = () => {
