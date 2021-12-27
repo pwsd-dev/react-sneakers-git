@@ -15,13 +15,10 @@ function Favorites({ onAddToCart, cartItem, setCartOpened, items, cartOpened, on
     return (
         <div className="content p-40">
             <h1 className="mb-40">Избранное</h1>
-            <div>
+            <div className="d-flex justify-between">
                 {card}
             </div>
-
-
             <div className="card-wrapper d-flex">
-                {/* {card} */}
                 {cartOpened ? <Cart items={cartItem}
                     onCloseCart={() => setCartOpened(false)}
                     onRemove={onRemoveItem}
