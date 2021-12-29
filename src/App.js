@@ -25,9 +25,18 @@ function App() {
     });
   }, []);
 
-  let onAddToCart = (obj) => {
-    axios.post('https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem', obj);
-    setCartItem((prev) => [...prev, obj]);
+  let onAddToCart = async (obj) => {
+    try {
+      if (cartItem.find((item) => item.id === obj.id)) {
+        setCartItem((prev) => prev.filter(item => item.id !== obj.id));
+        axios.delete(`https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem/${obj.id}`);
+      } else {
+        let { data } = await axios.post('https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem', obj)
+        setCartItem((prev) => [...prev, data]);
+      }
+    } catch (error) {
+      alert('Не удалось добавить в фавориты');
+    }
   }
 
   let onAddToFav = async (obj) => {
