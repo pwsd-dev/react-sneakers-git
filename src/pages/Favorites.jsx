@@ -2,7 +2,7 @@ import React from 'react';
 import Cart from '../components/Cart'
 import Card from '../components/Card'
 
-function Favorites({ onAddToCart, cartItem, setCartOpened, items, cartOpened, onRemoveItem, onAddFav }) {
+function Favorites({ onAddToCart, cartItem, setCartOpened, items, cartOpened, onRemoveItem, onAddFav, favorited }) {
     let card = items.map((item, index) => {
         return (<Card title={item.title}
             imageUrl={item.imageUrl}
@@ -10,12 +10,14 @@ function Favorites({ onAddToCart, cartItem, setCartOpened, items, cartOpened, on
             key={index}
             onPlus={(item) => onAddToCart(item)}
             onAddFav={(item) => onAddFav(item)}
+            favorited={true}
+            id={item.id}
         />);
     });
     return (
-        <div className="content p-40">
+        <div className="content p-40 justify-between ">
             <h1 className="mb-40">Избранное</h1>
-            <div className="d-flex justify-between">
+            <div className="d-flex justify-around flex-wrap">
                 {card}
             </div>
             <div className="card-wrapper d-flex">

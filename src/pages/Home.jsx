@@ -12,6 +12,7 @@ function Home({ searchValue, changeSearchInput, onAddToCart, cartItem, setCartOp
                 key={index}
                 onPlus={(item) => onAddToCart(item)}
                 onAddFav={(item) => onAddFav(item)}
+                id={item.id}
             />);
         });
     return (
@@ -23,7 +24,7 @@ function Home({ searchValue, changeSearchInput, onAddToCart, cartItem, setCartOp
                     <input value={searchValue} onChange={changeSearchInput}></input>
                 </div>
             </div>
-            <div className="card-wrapper d-flex">
+            <div className="card-wrapper d-flex justify-around">
                 {card}
                 {cartOpened ? <Cart items={cartItem}
                     onCloseCart={() => setCartOpened(false)}

@@ -2,25 +2,21 @@ import React from 'react';
 import styles from './Card.module.scss';
 
 
-function Card({ title, imageUrl, price, onPlus, onAddFav, favorited }) {
+function Card({ id, title, imageUrl, price, onPlus, onAddFav, favorited = false }) {
 
     const [isAdded, setIsAdded] = React.useState(false);
     const [isAddedFav, setIsAddedFav] = React.useState(favorited);
 
     const onClickPlus = () => {
         setIsAdded(!isAdded);
-        onPlus({ title, imageUrl, price });
+        onPlus({ id, title, imageUrl, price });
     };
 
     const onClickFav = () => {
         setIsAddedFav(!isAddedFav);
-        onAddFav({ title, imageUrl, price });
+        onAddFav({ id, title, imageUrl, price });
 
     };
-
-    // const onAddFav = () => {
-    //     setIsAddedFav(!isAddedFav);
-    // };
 
     React.useEffect(() => {
     }, [isAdded, isAddedFav]);
