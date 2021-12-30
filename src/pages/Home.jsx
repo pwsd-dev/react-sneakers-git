@@ -2,7 +2,15 @@ import React from 'react';
 import Cart from '../components/Cart'
 import Card from '../components/Card'
 
-function Home({ searchValue, changeSearchInput, onAddToCart, cartItem, setCartOpened, items, cartOpened, onRemoveItem, onAddFav }) {
+function Home({ items,
+    searchValue,
+    changeSearchInput,
+    onAddToCart,
+    cartItem,
+    setCartOpened,
+    cartOpened,
+    onRemoveItem,
+    onAddFav }) {
     let card = items
         .filter((item) => item.title.toLowerCase().includes(searchValue))
         .map((item, index) => {

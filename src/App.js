@@ -35,7 +35,7 @@ function App() {
         setCartItem((prev) => [...prev, data]);
       }
     } catch (error) {
-      alert('Не удалось добавить в фавориты');
+      alert('Не удалось добавить в корзину');
     }
   }
 
