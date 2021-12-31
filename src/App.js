@@ -72,17 +72,22 @@ function App() {
         </div>
 
         <Routes>
-          <Route path='/' exact element={<Home items={items}
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-            changeSearchInput={changeSearchInput}
-            onAddToCart={onAddToCart}
-            onAddFav={onAddToFav}
+          <Route path='/' exact
+            element={<Home
+              items={items}
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+              changeSearchInput={changeSearchInput}
+              onAddToCart={onAddToCart}
+              onAddFav={onAddToFav}
 
-          />}>
+            />}>
           </Route>
-          <Route path='/favorites' exact element={<Favorites items={favorites} onAddFav={onAddToFav}
-          />}>
+          <Route path='/favorites' exact
+            element={<Favorites
+              items={favorites}
+              onAddFav={onAddToFav}
+            />}>
 
           </Route>
         </Routes>
