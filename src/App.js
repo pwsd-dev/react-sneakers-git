@@ -8,9 +8,9 @@ import Favorites from './pages/Favorites.jsx';
 
 function App() {
   let [items, setItems] = React.useState([]);
+  let [favorites, setFavorites] = React.useState([]);
   let [cartOpened, setCartOpened] = React.useState(false);
   let [cartItem, setCartItem] = React.useState([]);
-  let [favorites, setFavorites] = React.useState([]);
   let [searchValue, setSearchValue] = React.useState('');
 
   React.useEffect(() => {
