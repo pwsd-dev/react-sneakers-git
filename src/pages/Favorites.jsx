@@ -2,7 +2,13 @@ import React from 'react';
 import Cart from '../components/Cart'
 import Card from '../components/Card'
 
-function Favorites({ onAddToCart, cartItem, setCartOpened, items, cartOpened, onRemoveItem, onAddFav, favorited }) {
+function Favorites({ items,
+    onAddToCart,
+    cartItem,
+    setCartOpened,
+    cartOpened,
+    onRemoveItem,
+    onAddFav }) {
     let card = items.map((item, index) => {
         return (<Card title={item.title}
             imageUrl={item.imageUrl}
