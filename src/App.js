@@ -69,7 +69,10 @@ function App() {
       <div className="content p-40">
 
         <div className="card-wrapper d-flex">
-          {cartOpened ? <Cart items={cartItem} onCloseCart={() => setCartOpened(false)} onRemove={onRemoveItem} key={cartItem.id} /> : null}
+          {cartOpened ? <Cart
+            items={cartItem}
+            onCloseCart={() => setCartOpened(false)}
+            onRemove={onRemoveItem} key={cartItem.id} /> : null}
         </div>
 
         <Routes>
