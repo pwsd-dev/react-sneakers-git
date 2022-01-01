@@ -10,7 +10,17 @@ function Home({ items,
     setCartOpened,
     cartOpened,
     onRemoveItem,
-    onAddFav }) {
+    onAddFav,
+    isLoadingItems
+}) {
+
+
+    let renderItems = () => {
+        return (
+            isLoadingItems ? [...Array(6)] : <>{card}</>
+        )
+    }
+
     let card = items
         .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
         .map((item, index) => {
@@ -21,7 +31,7 @@ function Home({ items,
                 onPlus={(item) => onAddToCart(item)}
                 onAddFav={(item) => onAddFav(item)}
                 id={item.id}
-                loading
+                loading={false}
             // added={cartItem.some((obj) => Number(obj.id) == Number(item.id))}
             />);
         });
@@ -35,7 +45,7 @@ function Home({ items,
                 </div>
             </div>
             <div className="card-wrapper d-flex justify-around">
-                {card}
+                {renderItems()}
                 {cartOpened ? <Cart items={cartItem}
                     onCloseCart={() => setCartOpened(false)}
                     onRemove={onRemoveItem}

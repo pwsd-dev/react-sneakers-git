@@ -11,7 +11,7 @@ function Card({ id,
     onAddFav,
     favorited = false,
     added = false,
-    loading = false
+    loading = false,
 }) {
 
     const [isAdded, setIsAdded] = React.useState(added);
