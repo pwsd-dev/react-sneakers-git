@@ -14,15 +14,19 @@ function App() {
   let [searchValue, setSearchValue] = React.useState('');
 
   React.useEffect(() => {
-    axios.get('https://61bf2889b25c3a00173f4cbe.mockapi.io/items').then((res) => {
-      setItems(res.data);
-    });
-    axios.get('https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem').then((res) => {
-      setCartItem(res.data);
-    });
-    axios.get('https://61bf2889b25c3a00173f4cbe.mockapi.io/favorites').then((res) => {
-      setFavorites(res.data);
-    });
+    async function getData() {
+
+      let cartResponse = await axios.get('https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem');
+      let favoriteResponse = await axios.get('https://61bf2889b25c3a00173f4cbe.mockapi.io/favorites');
+      let itemsResponse = await axios.get('https://61bf2889b25c3a00173f4cbe.mockapi.io/items');
+
+      setItems(itemsResponse.data);
+      setCartItem(cartResponse.data);
+      setFavorites(favoriteResponse.data);
+    }
+
+    getData()
+
   }, []);
 
   let onAddToCart = async (obj) => {

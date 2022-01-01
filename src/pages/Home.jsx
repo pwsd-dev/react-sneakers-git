@@ -12,7 +12,7 @@ function Home({ items,
     onRemoveItem,
     onAddFav }) {
     let card = items
-        .filter((item) => item.title.toLowerCase().includes(searchValue))
+        .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
         .map((item, index) => {
             return (<Card title={item.title}
                 imageUrl={item.imageUrl}
@@ -21,6 +21,7 @@ function Home({ items,
                 onPlus={(item) => onAddToCart(item)}
                 onAddFav={(item) => onAddFav(item)}
                 id={item.id}
+            // added={cartItem.some((obj) => Number(obj.id) == Number(item.id))}
             />);
         });
     return (
