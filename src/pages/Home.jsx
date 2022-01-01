@@ -21,6 +21,7 @@ function Home({ items,
                 onPlus={(item) => onAddToCart(item)}
                 onAddFav={(item) => onAddFav(item)}
                 id={item.id}
+                loading
             // added={cartItem.some((obj) => Number(obj.id) == Number(item.id))}
             />);
         });
