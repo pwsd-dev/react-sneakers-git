@@ -14,9 +14,11 @@ function App() {
   let [searchValue, setSearchValue] = React.useState('');
   let [isLoadingItems, setIsLoadingItems] = React.useState(true);
 
+  console.log(isLoadingItems)
+
   React.useEffect(() => {
     async function getData() {
-      // setIsLoadingItems(true);
+      setIsLoadingItems(true);
 
       let cartResponse = await axios.get('https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem');
       let favoriteResponse = await axios.get('https://61bf2889b25c3a00173f4cbe.mockapi.io/favorites');

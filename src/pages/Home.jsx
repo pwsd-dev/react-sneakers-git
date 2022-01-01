@@ -15,12 +15,6 @@ function Home({ items,
 }) {
 
 
-    let renderItems = () => {
-        return (
-            isLoadingItems ? [...Array(6)] : <>{card}</>
-        )
-    }
-
     let card = items
         .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
         .map((item, index) => {
@@ -34,7 +28,17 @@ function Home({ items,
                 loading={false}
             // added={cartItem.some((obj) => Number(obj.id) == Number(item.id))}
             />);
+
         });
+
+
+
+    let renderItems = () => {
+        return (isLoadingItems ? [...Array(10)] : <>{card}</>)
+
+    }
+    // console.log(isLoadingItems)
+
     return (
         <div className="content p-40">
             <div className="searchWrapper d-flex justify-between mb-40">
@@ -46,6 +50,7 @@ function Home({ items,
             </div>
             <div className="card-wrapper d-flex justify-around">
                 {renderItems()}
+                {/* {card} */}
                 {cartOpened ? <Cart items={cartItem}
                     onCloseCart={() => setCartOpened(false)}
                     onRemove={onRemoveItem}
