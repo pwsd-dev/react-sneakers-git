@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Card.module.scss';
 import ContentLoader from "react-content-loader";
+import AppContext from '../../context'
 
 
 function Card({ id,
@@ -12,13 +13,15 @@ function Card({ id,
     favorited = false,
     added = false,
     loading = false,
+
 }) {
 
-    const [isAdded, setIsAdded] = React.useState(added);
+    let { itemAdded } = React.useContext(AppContext)
+    // const [isAdded, setIsAdded] = React.useState(added);
     const [isAddedFav, setIsAddedFav] = React.useState(favorited);
 
     const onClickPlus = () => {
-        setIsAdded(!isAdded);
+
         onPlus({ id, title, imageUrl, price });
     };
 
@@ -29,7 +32,9 @@ function Card({ id,
     };
 
     React.useEffect(() => {
-    }, [isAdded, isAddedFav]);
+    }, [itemAdded, isAddedFav]);
+
+    console.log(itemAdded)
 
     return (
         <div className={styles.card}>
@@ -44,7 +49,7 @@ function Card({ id,
                         <img className="heart-unliked"
                             width={32} height={32}
                             onClick={onClickFav}
-                            src={isAddedFav ? "./img/heart-liked.svg" : "./img/heart-unliked.svg"}
+                            src={false ? "./img/heart-liked.svg" : "./img/heart-unliked.svg"}
                             alt="heart-unliked" />
                     </div>
                     <img width={133} height={112} src={imageUrl} alt="sneakers" />
@@ -58,7 +63,7 @@ function Card({ id,
                             <img className="add"
                                 onClick={onClickPlus}
                                 width={32} height={32}
-                                src={isAdded ? "./img/icon-buyed.svg" : "./img/plus.svg"}
+                                src={itemAdded(id) ? "./img/icon-buyed.svg" : "./img/plus.svg"}
                                 alt="sneakers" />
                         </div>
                     </div>

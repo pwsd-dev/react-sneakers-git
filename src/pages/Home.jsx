@@ -2,6 +2,7 @@ import React from 'react';
 import Cart from '../components/Cart'
 import Card from '../components/Card'
 
+
 function Home({ items,
     cartItem,
     searchValue,
@@ -20,6 +21,10 @@ function Home({ items,
 
     }
 
+
+
+
+
     // console.log(cartItem);
 
     let card = items
@@ -27,7 +32,7 @@ function Home({ items,
         .map((item, index) => {
             return (<Card
                 items={items}
-                cartItem={cartItem}
+                // cartItem={cartItem}
                 title={item.title}
                 imageUrl={item.imageUrl}
                 price={item.price}
@@ -36,7 +41,7 @@ function Home({ items,
                 onAddFav={(item) => onAddFav(item)}
                 id={item.id}
                 loading={isLoadingItems}
-            // added={cartItem.some((obj) => Number(obj.id) == Number(item.id))}
+            // added={itemAdded(item && item.id)}
             />);
 
         });

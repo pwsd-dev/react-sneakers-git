@@ -13,7 +13,6 @@ function Favorites({ items,
 
     let { favorites } = React.useContext(AppContext);
 
-    console.log(favorites)
 
     let card = favorites.map((item, index) => {
         return (<Card title={item.title}

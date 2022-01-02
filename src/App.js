@@ -77,6 +77,12 @@ function App() {
     setSearchValue(event.target.value);
   }
 
+  let itemAdded = (id) => {
+    return cartItem.some((obj) => Number(obj.id) == Number(id))
+  }
+
+
+
   return (
     < div className="wrapper" >
       <Header onClickCart={() => setCartOpened(true)} />
@@ -88,7 +94,7 @@ function App() {
             onCloseCart={() => setCartOpened(false)}
             onRemove={onRemoveItem} key={cartItem.id} /> : null}
         </div>
-        <AppContext.Provider value={{ favorites, cartItem }}>
+        <AppContext.Provider value={{ favorites, cartItem, itemAdded }}>
           <Routes>
             <Route path='/' exact
               element={
