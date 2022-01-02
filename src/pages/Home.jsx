@@ -14,27 +14,26 @@ function Home({ items,
     isLoadingItems
 }) {
 
-
-    let card = items
-        .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
-        .map((item, index) => {
-            return (<Card title={item.title}
-                imageUrl={item.imageUrl}
-                price={item.price}
-                key={index}
-                onPlus={(item) => onAddToCart(item)}
-                onAddFav={(item) => onAddFav(item)}
-                id={item.id}
-                loading={false}
-            // added={cartItem.some((obj) => Number(obj.id) == Number(item.id))}
-            />);
-
-        });
-
-
-
     let renderItems = () => {
+
+        let card = items
+            .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+            .map((item, index) => {
+                return (<Card title={item.title}
+                    imageUrl={item.imageUrl}
+                    price={item.price}
+                    key={index}
+                    onPlus={(item) => onAddToCart(item)}
+                    onAddFav={(item) => onAddFav(item)}
+                    id={item.id}
+                    loading={isLoadingItems}
+                // added={cartItem.some((obj) => Number(obj.id) == Number(item.id))}
+                />);
+
+            });
         return (isLoadingItems ? [...Array(10)] : <>{card}</>)
+
+
 
     }
     // console.log(isLoadingItems)

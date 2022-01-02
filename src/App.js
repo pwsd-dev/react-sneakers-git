@@ -14,7 +14,7 @@ function App() {
   let [searchValue, setSearchValue] = React.useState('');
   let [isLoadingItems, setIsLoadingItems] = React.useState(true);
 
-  console.log(isLoadingItems)
+  // console.log(isLoadingItems)
 
   React.useEffect(() => {
     async function getData() {
