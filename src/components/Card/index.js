@@ -11,7 +11,6 @@ function Card({ id,
     onPlus,
     onAddFav,
     favorited = false,
-    added = false,
     loading = false,
 
 }) {
