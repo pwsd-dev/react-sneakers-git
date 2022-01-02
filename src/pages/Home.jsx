@@ -3,10 +3,10 @@ import Cart from '../components/Cart'
 import Card from '../components/Card'
 
 function Home({ items,
+    cartItem,
     searchValue,
     changeSearchInput,
     onAddToCart,
-    cartItem,
     setCartOpened,
     cartOpened,
     onRemoveItem,
@@ -16,27 +16,31 @@ function Home({ items,
 
     let renderItems = () => {
 
-        let card = items
-            .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
-            .map((item, index) => {
-                return (<Card title={item.title}
-                    imageUrl={item.imageUrl}
-                    price={item.price}
-                    key={index}
-                    onPlus={(item) => onAddToCart(item)}
-                    onAddFav={(item) => onAddFav(item)}
-                    id={item.id}
-                    loading={isLoadingItems}
-                // added={cartItem.some((obj) => Number(obj.id) == Number(item.id))}
-                />);
-
-            });
         return (isLoadingItems ? [...Array(10)] : <>{card}</>)
 
-
-
     }
-    // console.log(isLoadingItems)
+
+    // console.log(cartItem);
+
+    let card = items
+        .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+        .map((item, index) => {
+            return (<Card
+                items={items}
+                cartItem={cartItem}
+                title={item.title}
+                imageUrl={item.imageUrl}
+                price={item.price}
+                key={index}
+                onPlus={(item) => onAddToCart(item)}
+                onAddFav={(item) => onAddFav(item)}
+                id={item.id}
+                loading={isLoadingItems}
+            // added={cartItem.some((obj) => Number(obj.id) == Number(item.id))}
+            />);
+
+        });
+
 
     return (
         <div className="content p-40">
@@ -49,7 +53,6 @@ function Home({ items,
             </div>
             <div className="card-wrapper d-flex justify-around">
                 {renderItems()}
-                {/* {card} */}
                 {cartOpened ? <Cart items={cartItem}
                     onCloseCart={() => setCartOpened(false)}
                     onRemove={onRemoveItem}

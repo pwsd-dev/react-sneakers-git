@@ -1,10 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
+import { Routes, Route, } from 'react-router-dom';
 import axios from 'axios';
 import Cart from './components/Cart'
 import Header from './components/Header';
 import Home from './pages/Home.jsx'
 import Favorites from './pages/Favorites.jsx';
+import AppContext from './context'
+
 
 function App() {
   let [items, setItems] = React.useState([]);
@@ -14,7 +16,9 @@ function App() {
   let [searchValue, setSearchValue] = React.useState('');
   let [isLoadingItems, setIsLoadingItems] = React.useState(true);
 
-  // console.log(isLoadingItems)
+  // let AppContext = React.createContext({});
+
+  // console.log(appContext);
 
   React.useEffect(() => {
     async function getData() {
@@ -84,30 +88,30 @@ function App() {
             onCloseCart={() => setCartOpened(false)}
             onRemove={onRemoveItem} key={cartItem.id} /> : null}
         </div>
+        <AppContext.Provider value={{ favorites, cartItem }}>
+          <Routes>
+            <Route path='/' exact
+              element={
+                <Home
+                  items={items}
+                  searchValue={searchValue}
+                  setSearchValue={setSearchValue}
+                  changeSearchInput={changeSearchInput}
+                  onAddToCart={onAddToCart}
+                  onAddFav={onAddToFav}
+                  isLoadingItems={isLoadingItems}
+                />}>
+            </Route>
+            <Route path='/favorites' exact
+              element={
+                <Favorites
+                  items={favorites}
+                  onAddFav={onAddToFav}
+                />}>
 
-        <Routes>
-          <Route path='/' exact
-            element={
-              <Home
-                items={items}
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-                changeSearchInput={changeSearchInput}
-                onAddToCart={onAddToCart}
-                onAddFav={onAddToFav}
-                isLoadingItems={isLoadingItems}
-              />}>
-          </Route>
-          <Route path='/favorites' exact
-            element={
-              <Favorites
-                items={favorites}
-                onAddFav={onAddToFav}
-              />}>
-
-          </Route>
-        </Routes>
-
+            </Route>
+          </Routes>
+        </AppContext.Provider>
       </div>
     </div >
   );

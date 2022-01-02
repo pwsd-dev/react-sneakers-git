@@ -1,6 +1,7 @@
 import React from 'react';
 import Cart from '../components/Cart'
 import Card from '../components/Card'
+import AppContext from '../context'
 
 function Favorites({ items,
     onAddToCart,
@@ -9,7 +10,12 @@ function Favorites({ items,
     cartOpened,
     onRemoveItem,
     onAddFav }) {
-    let card = items.map((item, index) => {
+
+    let { favorites } = React.useContext(AppContext);
+
+    console.log(favorites)
+
+    let card = favorites.map((item, index) => {
         return (<Card title={item.title}
             imageUrl={item.imageUrl}
             price={item.price}
