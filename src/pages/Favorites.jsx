@@ -3,7 +3,7 @@ import Cart from '../components/Cart'
 import Card from '../components/Card'
 import AppContext from '../context'
 
-function Favorites({ items,
+function Favorites({
     onAddToCart,
     cartItem,
     setCartOpened,

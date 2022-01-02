@@ -15,7 +15,7 @@ function Card({ id,
 
 }) {
 
-    let { itemAdded } = React.useContext(AppContext)
+    let { itemAdded, favorites } = React.useContext(AppContext)
     // const [isAdded, setIsAdded] = React.useState(added);
     const [isAddedFav, setIsAddedFav] = React.useState(favorited);
 
@@ -25,7 +25,7 @@ function Card({ id,
     };
 
     const onClickFav = () => {
-        setIsAddedFav(!isAddedFav);
+        setIsAddedFav(!isAddedFav)
         onAddFav({ id, title, imageUrl, price });
 
     };
@@ -33,7 +33,7 @@ function Card({ id,
     React.useEffect(() => {
     }, [itemAdded, isAddedFav]);
 
-    console.log(itemAdded)
+    // console.log(itemAdded)
 
     return (
         <div className={styles.card}>
@@ -48,7 +48,7 @@ function Card({ id,
                         <img className="heart-unliked"
                             width={32} height={32}
                             onClick={onClickFav}
-                            src={false ? "./img/heart-liked.svg" : "./img/heart-unliked.svg"}
+                            src={isAddedFav ? "./img/heart-liked.svg" : "./img/heart-unliked.svg"}
                             alt="heart-unliked" />
                     </div>
                     <img width={133} height={112} src={imageUrl} alt="sneakers" />
