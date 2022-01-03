@@ -40,7 +40,6 @@ function App() {
   }, []);
 
   let onAddToCart = async (obj) => {
-    // console.log(obj);
     try {
       if (cartItem.find((item) => Number(item.id) === Number(obj.id))) {
         setCartItem((prev) => prev.filter(item => Number(item.id) !== Number(obj.id)));
@@ -78,7 +77,7 @@ function App() {
   }
 
   let itemAdded = (id) => {
-    return cartItem.some((obj) => Number(obj.id) == Number(id))
+    return cartItem.some((obj) => Number(obj.id) === Number(id));
   }
 
 
@@ -111,7 +110,7 @@ function App() {
             <Route path='/favorites' exact
               element={
                 <Favorites
-                  onAddFav={onAddToFav}
+                // onAddFav={onAddToFav}
                 />}>
 
             </Route>
