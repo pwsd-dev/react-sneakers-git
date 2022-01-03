@@ -15,7 +15,7 @@ function Card({ id,
 
 }) {
 
-    let { itemAdded, favorites } = React.useContext(AppContext)
+    let { itemAdded } = React.useContext(AppContext)
     // const [isAdded, setIsAdded] = React.useState(added);
     const [isAddedFav, setIsAddedFav] = React.useState(favorited);
 
@@ -25,7 +25,7 @@ function Card({ id,
     };
 
     const onClickFav = () => {
-        setIsAddedFav(!isAddedFav)
+        setIsAddedFav(!isAddedFav);
         onAddFav({ id, title, imageUrl, price });
 
     };
