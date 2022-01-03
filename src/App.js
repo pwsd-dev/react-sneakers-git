@@ -94,7 +94,7 @@ function App() {
             onCloseCart={() => setCartOpened(false)}
             onRemove={onRemoveItem} key={cartItem.id} /> : null}
         </div>
-        <AppContext.Provider value={{ cartItem, favorites, itemAdded }}>
+        <AppContext.Provider value={{ items, cartItem, favorites, itemAdded }}>
           <Routes>
             <Route path='/' exact
               element={

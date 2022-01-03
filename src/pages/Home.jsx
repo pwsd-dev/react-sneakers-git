@@ -22,11 +22,6 @@ function Home({ items,
     }
 
 
-
-
-
-    // console.log(cartItem);
-
     let card = items
         .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
         .map((item, index) => {
@@ -41,7 +36,6 @@ function Home({ items,
                 onAddFav={(item) => onAddFav(item)}
                 id={item.id}
                 loading={isLoadingItems}
-            // added={itemAdded(item && item.id)}
             />);
 
         });
