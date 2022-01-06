@@ -39,10 +39,24 @@ function App() {
 
   }, []);
 
+  // let onAddToCart = async (obj) => {
+  //   try {
+  //     if (cartItem.find((item) => Number(item.id) === Number(obj.id))) {
+  //       setCartItem((prev) => prev.filter(item => Number(item.id) !== Number(obj.id)));
+  //       axios.delete(`https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem/${obj.id}`);
+  //     } else {
+  //       let { data } = await axios.post('https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem', obj)
+  //       setCartItem((prev) => [...prev, data]);
+  //     }
+  //   } catch (error) {
+  //     alert('Не удалось добавить в корзину');
+  //   }
+  // }
+
   let onAddToCart = async (obj) => {
     try {
-      if (cartItem.find((item) => Number(item.id) === Number(obj.id))) {
-        setCartItem((prev) => prev.filter(item => Number(item.id) !== Number(obj.id)));
+      if (cartItem.find((item) => item.title === obj.title)) {
+        setCartItem((prev) => prev.filter(item => item.title !== obj.title));
         axios.delete(`https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem/${obj.id}`);
       } else {
         let { data } = await axios.post('https://61bf2889b25c3a00173f4cbe.mockapi.io/cartItem', obj)
