@@ -109,7 +109,7 @@ function App() {
             </Route>
             <Route path='/favorites' exact
               element={
-                <Favorites
+                <Favorites onAddFav={onAddToFav}
                 // onAddFav={onAddToFav}
                 />}>
 
